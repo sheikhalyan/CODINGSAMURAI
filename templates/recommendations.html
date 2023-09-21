@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <!-- Include Bootstrap via CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-5">
+        <h1>Movie Recommendations</h1>
+    </header>
+    <main class="container mt-5">
+        <section>
+            <h2 class="text-center mb-4">Your Recommended Movies</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Genres</th>
+                        <th>Average Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for movie in recommendations %}
+                    <tr>
+                        <td>{{ movie['title'] }}</td>
+                        <td>{{ movie['genres'] }}</td>
+                        <td>{{ movie['avg_rating'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p class="mt-3 text-center"><a href="/" class="btn btn-primary">Go Back</a></p>
+        </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy;Movie Recommendation System by Sheikh Alyan</p>
+    </footer>
+    <!-- Include Bootstrap JS and jQuery (if needed) via CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
